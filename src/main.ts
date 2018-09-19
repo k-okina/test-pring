@@ -2,8 +2,8 @@ import Vue from 'vue';
 import App from './App.vue';
 
 import firebase from 'firebase';
-import 'firebase/firestore';
 import * as Pring from 'pring';
+
 
 const app = firebase.initializeApp({
   apiKey: 'hoge',

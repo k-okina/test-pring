@@ -1,4 +1,4 @@
-import * as Pring from 'pring';
+import * as Pring from 'k-okina-test-pring';
 
 const property = Pring.property;
 
