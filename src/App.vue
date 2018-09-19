@@ -1,12 +1,13 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+    <h1>test pring</h1>
+    <button @click="test()">このボタンを押して new User()の実験をしましょう</button>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
+import { User } from '@/models/user';
 import HelloWorld from './components/HelloWorld.vue';
 
 @Component({
@@ -14,16 +15,17 @@ import HelloWorld from './components/HelloWorld.vue';
     HelloWorld,
   },
 })
-export default class App extends Vue {}
-</script>
-
-<style lang="scss">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+export default class App extends Vue {
+  private async test() {
+    const user = new User();
+    user.name = 'test user';
+    try {
+      await user.save();
+      console.log('成功しました！');
+    } catch (e) {
+      console.log('失敗しました orz');
+      console.log(e);
+    }
+  }
 }
-</style>
+</script>
